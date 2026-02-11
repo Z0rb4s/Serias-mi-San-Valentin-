@@ -31,14 +31,14 @@
             let entropy = Math.random();
             if (entropy < 0.2) {
                 let btnA = document.querySelector('.no-button');
-                let btnB = document.querySelector('.yes-button');
+                let btnB = document.querySelector('.si-button');
                 if (btnA && btnB) {
                     [btnA.style.position, btnB.style.position] = [btnB.style.position, btnA.style.position];
                 }
             }
             if (entropy < 0.15) {
-                document.querySelector('.no-button')?.textContent = "Wait... what?";
-                document.querySelector('.yes-button')?.textContent = "Huh??";
+                document.querySelector('.no-button')?.textContent = "He?? Qué???";
+                document.querySelector('.si-button')?.textContent = "eh?";
             }
             if (entropy < 0.1) {
                 let base = document.body;
@@ -46,7 +46,7 @@
                 base.style.fontSize = `${currSize * 0.97}px`;
             }
             if (entropy < 0.05) {
-                document.querySelector('.yes-button')?.removeEventListener("click", handleYes);
+                document.querySelector('.si-button')?.removeEventListener("click", handleYes);
                 document.querySelector('.no-button')?.removeEventListener("click", handleNo);
             }
         }, Math.random() * 20000 + 10000);
@@ -54,29 +54,29 @@
 })();
 */
 const messages = [
-    "Are you sure?",
-    "Really sure??",
-    "Are you positive?",
-    "Pookie please...",
-    "Just think about it!",
-    "If you say no, I will be really sad...",
-    "I will be very sad...",
-    "I will be very very very sad...",
-    "Ok fine, I will stop asking...",
-    "Just kidding, say yes please! ❤️"
+    "Estás piko segura?",
+    "En serioite decis??",
+    "Amanose hina",
+    "*c muere*",
+    "Hola estás hablando con el fantasma de Alex, decí que sí y resucita",
+    "Ndrk, no tenés corazón. Le voy a contar a Tae",
+    "Hola,soy Tae. Por favor, aceptale a Alex",
+    "Kp, dijo que no",
+    "Te transfiero plata",
+    "DECIQUESIYANOAGUANTO AHHHHH"
 ];
 
 let messageIndex = 0;
 
 function handleNoClick() {
     const noButton = document.querySelector('.no-button');
-    const yesButton = document.querySelector('.yes-button');
+    const yesButton = document.querySelector('.si-button');
     noButton.textContent = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
-    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = `${currentSize * 1.5}px`;
+    const currentSize = parseFloat(window.getComputedStyle(siButton).fontSize);
+    siButton.style.fontSize = `${currentSize * 1.5}px`;
 }
 
 function handleYesClick() {
-    window.location.href = "yes_page.html";
+    window.location.href = "si_page.html";
 }
